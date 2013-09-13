@@ -37,5 +37,9 @@ namespace MonoDroid.Simplified
         {
             _children.Add(child);
         }
+        public void Add(IEnumerable<IElement> children)
+        {
+            _children.AddRange(children);
+        }
     }
 }

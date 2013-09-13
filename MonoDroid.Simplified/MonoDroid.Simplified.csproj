@@ -82,6 +82,7 @@
     <Compile Include="RowStyle.cs" />
     <Compile Include="Style.cs" />
     <Compile Include="TextStyle.cs" />
+    <Compile Include="ViewExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

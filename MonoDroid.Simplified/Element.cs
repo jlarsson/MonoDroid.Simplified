@@ -9,11 +9,11 @@ namespace MonoDroid.Simplified
         private readonly int _width;
         private readonly int _height;
 
-        public Element(Style.WidthHeight widthHeight)
+        public Element(Style.WidthHeight wh)
         {
-            if (widthHeight == null) throw new ArgumentNullException("widthHeight");
-            _width = widthHeight.Width;
-            _height = widthHeight.Height;
+            if (wh == null) throw new ArgumentNullException("wh");
+            _width = wh.Width;
+            _height = wh.Height;
         }
 
         public Element(int width, int height)

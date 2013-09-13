@@ -17,4 +17,10 @@ namespace MonoDroid.Simplified
             return LayoutInflater.FromContext(context).Inflate(_resourceId, parent, false);
         }
     }
+    public class InflatedElement<TView> : InflatedElement, IElement<TView> where TView : View
+    {
+        public InflatedElement(int resourceId) : base(resourceId)
+        {
+        }
+    }
 }

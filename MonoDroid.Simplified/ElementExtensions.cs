@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Android.App;
 using Android.Graphics;
 using Android.Graphics.Drawables;
 using Android.Text;
@@ -17,6 +18,14 @@ namespace MonoDroid.Simplified
 {
     public static class ElementExtensions
     {
+        /*****************************************************************
+         * Creation
+         ****************************************************************/
+        public static View CreateView(this IElement element, Activity activity)
+        {
+            return element.CreateView(activity, null);
+        }
+
         /*****************************************************************
          * Initialization
          ****************************************************************/

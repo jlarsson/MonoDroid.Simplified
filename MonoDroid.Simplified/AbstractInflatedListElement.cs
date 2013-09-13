@@ -7,9 +7,9 @@ namespace MonoDroid.Simplified
     {
         public override View CreateView(Context context, ViewGroup parent)
         {
-            return LayoutInflater.FromContext(context).Inflate(ResourceId, parent, false);
+            return LayoutInflater.FromContext(context).Inflate(LayoutResourceId, parent, false);
         }
 
-        protected abstract int ResourceId { get; set; }
+        protected abstract int LayoutResourceId { get; }
     }
 }

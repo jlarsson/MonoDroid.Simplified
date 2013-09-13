@@ -35,6 +35,11 @@ namespace MonoDroid.Simplified
             return new SetupElement<TView>(element, setup);
         }
 
+        public static IElement<TView> SetupChild<TView,TChildView>(this IElement<TView> element, int childId, Action<TChildView> setupChild) where TView : View where TChildView : View
+        {
+            return element.Setup(v => setupChild(v.FindViewById<TChildView>(childId)));
+        }
+
         /*****************************************************************
          * Style, layout and appearance
          ****************************************************************/

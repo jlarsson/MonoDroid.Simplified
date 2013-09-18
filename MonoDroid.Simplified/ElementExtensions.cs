@@ -30,9 +30,25 @@ namespace MonoDroid.Simplified
          * Initialization
          ****************************************************************/
 
+        public static IElement Setup(this IElement element, Action<View> setup)
+        {
+            return new SetupElement(element, setup);
+        }
+
         public static IElement<TView> Setup<TView>(this IElement<TView> element, Action<TView> setup) where TView: View
         {
             return new SetupElement<TView>(element, setup);
+        }
+
+        public static IListElement Setup(this IListElement element, Action<View> setup)
+        {
+            return new SetupListElement(element, setup);
+        }
+
+        public static IElement SetupChild<TChildView>(this IElement element, int childId, Action<TChildView> setupChild)
+            where TChildView : View
+        {
+            return element.Setup(v => setupChild(v.FindViewById<TChildView>(childId)));
         }
 
         public static IElement<TView> SetupChild<TView,TChildView>(this IElement<TView> element, int childId, Action<TChildView> setupChild) where TView : View where TChildView : View

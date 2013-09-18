@@ -47,6 +47,7 @@
     <Compile Include="Element.cs" />
     <Compile Include="ElementExtensions.cs" />
     <Compile Include="ElementRegistry.cs" />
+    <Compile Include="Elements\SetupListElement.cs" />
     <Compile Include="Elements\StyleElement.cs" />
     <Compile Include="EventHandlers\OnCheckedChangeListenerForCompoundButton.cs" />
     <Compile Include="EventHandlers\OnCheckedChangeListenerForRadioGroup.cs" />

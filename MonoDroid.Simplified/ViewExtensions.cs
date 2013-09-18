@@ -75,6 +75,12 @@ namespace MonoDroid.Simplified
             return view;
         }
 
+        public static TView OnCreateContextMenu<TView>(this TView view, Action<IContextMenu, View, IContextMenuContextMenuInfo> onCreateContextMenu) where TView : View
+        {
+            view.SetOnCreateContextMenuListener(new OnCreateContextMenuListener { OnCreateContextMenu = onCreateContextMenu });
+            return view;
+        }
+
         /*****************************************************************
          * AdapterView
          ****************************************************************/

@@ -53,6 +53,7 @@
     <Compile Include="EventHandlers\OnCheckedChangeListenerForRadioGroup.cs" />
     <Compile Include="EventHandlers\OnClickListener.cs" />
     <Compile Include="EventHandlers\OnCreateContextMenuListener.cs" />
+    <Compile Include="EventHandlers\OnFocusChangeListener.cs" />
     <Compile Include="EventHandlers\OnItemClickListener.cs" />
     <Compile Include="EventHandlers\OnItemLongClickListener.cs" />
     <Compile Include="EventHandlers\OnItemSelectedListener.cs" />

@@ -1,8 +1,10 @@
 using System;
 using Android.Support.V4.View;
+using Android.Text;
 using Android.Views;
 using Android.Webkit;
 using Android.Widget;
+using Java.Lang;
 using MonoDroid.Simplified.EventHandlers;
 
 namespace MonoDroid.Simplified
@@ -75,6 +77,12 @@ namespace MonoDroid.Simplified
             return view;
         }
 
+        public static TView OnFocus<TView>(this TView view, Action<View, bool> onFocusChange) where TView: View
+        {
+            view.OnFocusChangeListener = new OnFocusChangeListener(){OnFocusChange = onFocusChange};
+            return view;
+        }
+
         public static TView OnCreateContextMenu<TView>(this TView view, Action<IContextMenu, View, IContextMenuContextMenuInfo> onCreateContextMenu) where TView : View
         {
             view.SetOnCreateContextMenuListener(new OnCreateContextMenuListener { OnCreateContextMenu = onCreateContextMenu });
@@ -134,6 +142,26 @@ namespace MonoDroid.Simplified
             var holder = view.SelectedItem as ListElementAdapter.ListElementHolder;
             return holder == null ? null : holder.Element;
         }
+
+        /*****************************************************************
+         * TextView
+         ****************************************************************/
+
+        public static TView OnTextChanged<TView>(this TView view,
+            Action<TextChangedEventArgs> onTextChanged,
+            Action<ICharSequence, int, int, int> onBeforeTextChanged = null,
+            Action<IEditable> onAfterTextChanged = null)
+            where TView : TextView
+        {
+            view.AddTextChangedListener(new TextWatcher
+            {
+                BeforeTextChanged = onBeforeTextChanged,
+                OnTextChanged = onTextChanged,
+                AfterTextChanged = onAfterTextChanged
+            });
+            return view;
+        }
+
 
         /*****************************************************************
          * CompoundButton

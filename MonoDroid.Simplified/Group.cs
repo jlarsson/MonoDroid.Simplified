@@ -21,7 +21,7 @@ namespace MonoDroid.Simplified
         public override View CreateView(Context context, ViewGroup parent)
         {
             var view = (TViewGroup)base.CreateView(context, parent);
-            foreach (var childView in _children.Select(child => child.CreateView(context, view)))
+            foreach (var childView in _children.Where(c => c != null).Select(child => child.CreateView(context, view)).Where(v => v != null))
             {
                 view.AddView(childView, childView.LayoutParameters);
             }
